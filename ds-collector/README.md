@@ -152,7 +152,7 @@ cd /tmp/
 tar -xvf <path-to-bundle>/<bundle>.tar.gz
 mv collector datastax
 cd datastax
-wget https://github.com/datastax/diagnostic-collection/raw/master/ds-collector/collector-0.11.1-SNAPSHOT.jar
+wget https://github.com/datastax/diagnostic-collection/raw/master/ds-collector/collector-0.16.2-SNAPSHOT.jar
 # edit collector.conf, then run the ds-collector in client-mode
 ./ds-collector -C -f collector.conf 
 # if the node has internet access, upload directly to s3
@@ -186,10 +186,10 @@ cd collector
 ./ds-collector -f collector.conf -a "$(pwd)/../datastax"
 ```
 
-* To run the collector when `xxd` is unavailable on the bastion, manually download the `collector-0.11.1-SNAPSHOT.jar` file to the `collector/` folder.
+* To run the collector when `xxd` is unavailable on the bastion, manually download the `collector-0.16.2-SNAPSHOT.jar` file to the `collector/` folder.
 ```
 cd collector
-wget https://github.com/datastax/diagnostic-collection/raw/master/ds-collector/collector-0.11.1-SNAPSHOT.jar
+wget https://github.com/datastax/diagnostic-collection/raw/master/ds-collector/collector-0.16.2-SNAPSHOT.jar
 ```
 
 * The `nodetool` command is not found in $PATH on the nodes. While the `addPath` and `prependPath` options (see collector.conf) can be used for other commands to be found on the node, the `nodetool` command is used before these variables are applied. To fix this manually update the `nodetoolCmd` variable in the `list_cassandra_nodes` function in the `ds-colllector` script. (See https://github.com/datastax/diagnostic-collection/issues/83 )
